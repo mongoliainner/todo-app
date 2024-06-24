@@ -1,3 +1,20 @@
+import { useState } from "react";
+
 export default function Todo() {
-  return <div>Todo</div>;
+  const [todo, setTodo] = useState("");
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={(e) => setTodo(e.target.value)}
+          value={todo}
+          type="text"
+        />
+        <button type="submit">Added</button>
+      </form>
+    </div>
+  );
 }
